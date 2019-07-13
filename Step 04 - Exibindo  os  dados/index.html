@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>4.Batalha - Papel, Pedra e Tesoura</title>
+    <link rel="stylesheet" type="text/css" href="/vendor/styles/style.css">
+    <script src="/vendor/vue.js"></script>
+</head>
+
+<body>
+    <!-- Para exibir todos os jogadores é necessário percorrer todos os elementos da propriedade 
+        players, que esta no objeto data da nossa instância Vue. Isso pode ser feito através da
+        diretiva v-for="itemDoArray in Array".
+    -->
+    <div id="board">
+        <div class="item" v-for="itemPlayer in players" >
+            <!-- No nosso caso players é o array e itemPlayer (poderia ser qualquer nome) é um item dele. Equivalente a 
+            players[0], players[1], players[n]...
+            ATENÇÃO!! Javascript case sensitive, ou seja, Players é diferente de players.  -->
+            <div>
+                <h2>{{itemPlayer.name}}</h2>
+            </div>
+            <div class="players item">
+                <!-- Aplicaremos a mesma técnica para exibir todas as imagens.
+                Sim, vamos exibi-las e depois controlaremos sua visibilidade.  -->
+                <div class="container-images" v-for="itemElement in elements">
+                    <!-- Neste caso itemElement é uma representação de um dos elementos
+                    "Pedra, Papel e Tesoura" -->
+                    <a href="#">
+                        <!-- Assumindo que as imagens teem o mesmo dos elementos, vamos
+                        renderizá-las concatenando o caminho + nome + extensão.
+                        Repare que no caminho foi necessário utilizar contra-barras duplas, 
+                        pois como a própria contra-barra é um caracter de escape é necessário
+                        colocá-la 2x. 
+                        
+                        A concatenação do nome da imagem não é muito legível desta forma.
+                        Há maneiras mais elegantes de trabalharmos, mas por enquanto, julgo
+                        importante aprender as particularidades de uma concatenação de um 
+                        texto com uma propriedade vue.
+                        
+                        O caminho da imagem é disponibilizado no atributo src. Para que o
+                        VUE possa interagir e fazer a devida interpolação será necessário
+                        colocar no atributo a diretiva v-bind (ou sua abreviação :).
+
+                        Nos atributos [alt] e  [title] utilizei a atribuição do v-bind (:).
+                        É importante observar que as propriedades a serem renderizadas
+                        não foram envolvidas em chaves duplas {{}}.
+                        -->
+                        <img 
+                            v-bind:src="'..\\vendor\\images\\' + itemElement.name + '.png'" 
+                            :alt="itemElement.name" :title="itemElement.name" />
+                    </a>
+                    <!-- Se milagrosamente você chegou até aqui com sucesso, deve estar vendo
+                    o nome dos jogadores e as imagens de todos os elementos disponíveis para
+                    cada um. Caso não, olhe seu console, veja se indica algum erro. Procure
+                    por excesso de aspas (ou falta), esquecimento do bind (:) etc...  -->
+                </div>
+                <div>
+                    <span class="optionSelected"></span>
+                </div>
+                <div>
+                    <h2></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+
+</html>

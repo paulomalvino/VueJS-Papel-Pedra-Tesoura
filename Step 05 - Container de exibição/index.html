@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>5.Batalha - Papel, Pedra e Tesoura</title>
+    <link rel="stylesheet" type="text/css" href="/vendor/styles/style.css">
+    <script src="/vendor/vue.js"></script>
+</head>
+
+<body>
+    <!-- Ao aplicarmos a diretiva v-for na tag <div class="container-images"> ela
+        multiplicou-se, juntamente com o seu contéudo. Porém queremos também fazer
+    a interpolação em outra <div> imediatamente abaixo dela, para popularmos a tag
+        <span class="optionSelected"> com o nome do elemento respectivo a figura.
+            
+        Seria muito fácil aplicarmos o v-for novamente nesta div, mas seria dispendioso.
+        Então poderíamos englobar as duas divs em uma outra div pai e aplicar o v-for
+        nela e o problema estaria resolvido. Sim, estaria. Porém esta nova tag poderia
+        vir a comprometer o layout.  Para esses casos VUE possui permite que você
+        englobe as outras tags num container pai chamado <template>. A grande diferença
+        entre ele e a solução da div é que ele não será renderizado, deixando o layout
+        intacto.
+        -->
+    <div id="board">
+        <div class="item" v-for="itemPlayer in players">
+            <div>
+                <h2>{{itemPlayer.name}}</h2>
+            </div>
+            <div class="players item">
+                <!-- Container template contendo a div com as imagens e a div com 
+                    o span que indica o nome da figura. -->
+                <template v-for="itemElement in elements">
+                    <div class="container-images">
+                        <a href="#">
+                            <img v-bind:src="'..\\vendor\\images\\' + itemElement.name + '.png'" :alt="itemElement.name"
+                                :title="itemElement.name" />
+                        </a>
+                    </div>
+                    <div>
+                        <span class="optionSelected">{{itemElement.name}}</span>
+                    </div>
+                </template>
+                <div>
+                    <h2></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+
+</html>
