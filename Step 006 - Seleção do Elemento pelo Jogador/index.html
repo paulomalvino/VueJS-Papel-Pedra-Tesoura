@@ -30,7 +30,13 @@
                 <!--1) Diretiva v-if  -->
                 <template v-for="itemElement in elements" v-if="itemPlayer.elementSelected==itemElement">
                     <div class="container-images">
-                        <!--3) Associando o método onClickExecute passando o  -->
+                        <!--3) Associando o método onClickExecute passando o Player e o Elemento.
+                        Para escutar um evento é necessário usar a diretiva v-on ou sua abreviação @.
+                        No cenário abaixo estamos escutando o evento click e dizendo para acionar
+                        o método OnclickExecute.
+                        Os manipuladores de método também aceitam modificadores, como stop, prevent,
+                        capture, self etc... Leia mais sobre o assunto na documentação do vuejs
+                        -->
                         <a href="#" @click="onClickExecute(itemPlayer, itemElement)">
 
                             <img v-bind:src="'..\\vendor\\images\\' + itemElement.name + '.png'" :alt="itemElement.name"
