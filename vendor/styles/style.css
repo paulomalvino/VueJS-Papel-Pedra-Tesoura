@@ -1,0 +1,112 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#board {
+    max-width: 512px;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    display: flex;
+}
+
+.player1 {
+    background-color: blue;
+    color: #FFF;
+}
+
+.computer {
+    background-color: red;
+    color: #000;
+
+}
+
+.players span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.flex {
+    display: flex;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.item {
+    flex: 1;
+    margin: 5px;
+    text-align: center;
+    font-size: 12px;
+    min-width: 240px;
+    min-height: 200px;
+}
+
+div img {
+    margin-top: 20px;
+    width: 50%;
+    position: relative;
+    cursor: pointer;
+
+
+}
+
+
+
+#auto-stone {
+    display: block;
+    margin-top: -3px;
+    transform: scaleX(-1);
+}
+
+#auto-scissors {
+    display: none;
+    transform: scaleX(-1);
+}
+
+#auto-paper {
+    display: none;
+    transform: scaleX(-1);
+}
+
+#control-stone {
+    display: block;
+    margin-top: -6px;
+}
+
+#control-paper {
+    display: none;
+}
+
+#control-scissors {
+    display: none;
+}
+
+.container-images {
+    display: block;
+    min-height: 132px;
+}
+
+.optionSelected {
+    height: 30px;
+    display: block;
+}
+
+#optionSelectedPlayer {
+    background-color: red;
+}
+
+#optionSelectedComputer {
+    background-color: blue;
+    color: #FFF;
+}

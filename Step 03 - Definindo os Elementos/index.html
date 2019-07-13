@@ -1,0 +1,37 @@
+<!-- ATENÇÃO! COMECE LENDO O ARQUIVO GAME.JS -->
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Batalha - Papel, Pedra e Tesoura</title>
+    <link rel="stylesheet" type="text/css" href="/vendor/styles/style.css">
+    <script src="/vendor/vue.js"></script>
+</head>
+
+<body>
+    <div id="board">
+        <div class="item">
+            <div>
+                <h2>{{players[0].name}} (humano:{{players[0].human}}) / {{players[1].name}}  (humano:{{players[1].human}}) </h2>
+            </div>
+            <div class="players item">
+                <div class="container-images">
+                    <a href="#">
+                        <img src="" alt="" />
+                    </a>
+                </div>
+                <div>
+                    <span class="optionSelected">{{elements[0].name}} {{elements[0].value}} </span>
+                </div>
+                <div>
+                    <h2></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+
+</html>

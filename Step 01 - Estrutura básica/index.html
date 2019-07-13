@@ -1,0 +1,63 @@
+<!-- A declaração <! DOCTYPE> não é uma tag HTML; é uma instrução para o navegador
+    sobre qual versão do HTML a página está escrita.  -->
+<!DOCTYPE html>
+<!-- A tag <html> informa ao navegador o tipo do documento e também sua raiz.
+    Ele é o container para todos os demais elementos.
+    O atributo lang especifica a linguagem do conteúdo -->
+<html lang="pt">
+
+<!-- <head> é um conteiner para os principais elementos do documento  -->
+
+<head>
+    <!-- o atributo charset especifica a codificação de caracteres para o documento -->
+    <meta charset="UTF-8">
+
+    <!-- Exibe o titulo da página -->
+    <title>Batalha - Papel, Pedra e Tesoura</title>
+
+    <!-- Através da tag link você incorpora um arquivo de estilo (css)-->
+    <link rel="stylesheet" type="text/css" href="/vendor/styles/style.css">
+
+    <!-- Através da tag script você incorpora um script, neste caso o vuejs -->
+    <script src="/vendor/vue.js"></script>
+
+</head>
+
+<!-- <body> é o corpo do documento. O que de fato será exibido -->
+
+<body>
+    <!-- defina aqui o root (raiz) do seu aplicativo. É a partir desse elemento
+    que o VueJs vai atuar. Eu chamei de 'board' -->
+    <div id="board">
+
+        <!-- Todos os elemento contidos aqui  poderão ser administrados pelo
+        Vue -->
+        <div class="item">
+            <div>
+                <h2>{{informacao}}</h2>
+            </div>
+            <div class="players item">
+                <div class="container-images">
+                    <a href="#">
+                        <img src="" alt="" />
+                    </a>
+                </div>
+                <div>
+                    <span class="optionSelected"></span>
+                </div>
+                <div>
+                    <h2></h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Inserindo o nosso arquivo javascript onde vamos criar o nosso game.
+     Embora pussamos colocá-lo lá no HEAD, aqui é o melhor lugar para se definir
+     os arquivos secundários como o nosso (o do VUE é o principal), para evitar
+     o bloqueamento da redenrização da página enquanto o browser o carrega.  -->
+    <script src="game.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jogo - Pedra, Papel e Tesoura (VueJS)</title>
+
+
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+
+<body>
+
+    <div id="qqq">
+
+    </div>
+    <div id="app" class="flex">
+        <!-- <div>
+            <p><strong>{{game.name}}</strong></p>
+            <p>versão: {{game.version}}</p>
+            <p>autor: {{game.author}}</p>
+        </div> -->
+         <template v-for="p in players">
+            <div class="item">
+                <div>
+                    <h2>{{p.name}}</h2>
+                </div>
+                <div :class="{player1:p.human, computer:!p.human}" class="players item">
+                    <div class="container-images">
+                        <template v-for="element in elements">
+                            <a @click.stop="executeAction(p)" v-show="isVisible(p, element)" >
+                                <img :src="element.image" :alt="element.name">
+                            </a>
+                        </template>
+                    </div>
+                    <div>
+                        <span :class="{optionSelectedPlayer: p.human , optionSelectedComputer:!p.human}"
+                            class="optionSelected">{{p.elementSelected.name}}</span>
+                    </div>
+                    <div>
+                        <h2>{{p.score}}</h2>
+                    </div>
+                </div>
+            </div>
+
+        </template>
+
+    </div>
+
+</body>
+<script src="scripts/game.js"></script>
+
+</html>
