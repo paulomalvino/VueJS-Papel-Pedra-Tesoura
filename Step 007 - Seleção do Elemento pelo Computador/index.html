@@ -1,0 +1,39 @@
+<!-- STEP 07 - AQUI PERMANECE INALTERADO -->
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>7.Batalha - Papel, Pedra e Tesoura</title>
+    <link rel="stylesheet" type="text/css" href="/vendor/styles/style.css">
+    <script src="/vendor/vue.js"></script>
+</head>
+
+<body>
+    <div id="board">
+        <div class="item" v-for="itemPlayer in players">
+            <div>
+                <h2>{{itemPlayer.name}}</h2>
+            </div>
+            <div class="players item">
+                <template v-for="itemElement in elements" v-if="itemPlayer.elementSelected==itemElement">
+                    <div class="container-images">
+                        <a href="#" @click="onClickExecute(itemPlayer, itemElement)">
+                            <img v-bind:src="'..\\vendor\\images\\' + itemElement.name + '.png'" :alt="itemElement.name"
+                                :title="itemElement.name" />
+                        </a>
+                    </div>
+                    <div>
+                        <span class="optionSelected">{{itemElement.name}}</span>
+                    </div>
+                </template>
+                <div>
+                    <h2></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+
+</html>
