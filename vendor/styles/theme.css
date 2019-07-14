@@ -1,0 +1,71 @@
+
+/* ------------------- Estrutural  ----------------------------------  */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.item {
+    flex: 1;
+    margin: 5px;
+    text-align: center;
+    font-size: 12px;
+    min-width: 240px;
+    min-height: 200px;
+}
+
+
+/* ------------------- Tabuleiro ----------------------------------  */
+
+
+#board {
+    max-width: 512px;
+    margin: 10px auto;
+    background-image: url("../images/back.jpg");
+    background-repeat: no-repeat;
+    background-size:100%;
+}
+
+#board-body{
+    display: flex;
+}
+
+#board-footer{
+    background-color: black;
+    height: 50px;
+}
+
+#board-footer p{
+    color: #fff;
+    text-align: center;
+    padding: 4px 4px;
+}
+
+
+/* ------------------- Jogadores ----------------------------------  */
+
+#container-players span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* ------------------- Imagens das mãos ----------------------------------  */
+
+
+div img {
+    margin-top: 40px;
+    width: 50%;
+    position: relative;
+    cursor: pointer;
+    height: 100px;
+
+}
+
+.hands-computer{
+    transform: scaleX(-1);
+}
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>9.Batalha - Papel, Pedra e Tesoura</title>
+
+    <!-- Troca do arquivo css de 'style.css' por 'theme.css'-->
+    <link rel="stylesheet" type="text/css" href="/vendor/styles/theme.css">
+    <script src="/vendor/vue.js"></script>
+</head>
+
+<body>
+    <div id="board">
+
+        <!-- Criação de uma nova tag div com o id 'board-body' para englobar os players e as imagens -->
+        <div id="board-body">
+            <div class="item" v-for="itemPlayer in players">
+                <div>
+                    <h2>{{itemPlayer.name}}</h2>
+                </div>
+                <!-- Adição do id="container-players", remoção da class='players' -->
+                <div id="container-players" class="item">
+                    <template v-for="itemElement in elements" v-if="itemPlayer.elementSelected==itemElement">
+                        <div class="container-images">
+                            <a href="#" @click="onClickExecute(itemPlayer, itemElement)">
+                                <!-- Adição de classe 'hands-computer' seomente para as
+                                imagens das mãos do computador-->
+                                <img v-bind:src="'..\\vendor\\images\\' + itemElement.name + '.png'"
+                                    :alt="itemElement.name" :title="itemElement.name"
+                                    :class="{'hands-computer':!itemPlayer.human}" />
+                            </a>
+                        </div>
+                        <div>
+                            <span class="optionSelected">{{itemElement.name}}</span>
+                        </div>
+                    </template>
+
+                </div>
+            </div>
+        </div>
+        <!-- Criação de uma nova tag div com o id 'board-footer' para visualização de mensagens -->
+        <div id="board-footer">
+            <p v-html="game.message"></p>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+
+</html>
